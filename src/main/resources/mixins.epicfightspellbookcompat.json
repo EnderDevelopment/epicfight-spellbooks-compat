@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.enderdevelopment.epicfightspellbookcompat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PresetRendererMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

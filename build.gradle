@@ -1,0 +1,52 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.18'
+}
+
+group = 'com.enderdevelopment'
+version = '1.0'
+archivesBaseName = 'epicfightspellbookcompat'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'forge'
+        url = "https://files.minecraftforge.net/maven"
+    }
+}
+
+ext {
+    minecraft_version = '1.20.1'
+    forge_version = '47.1.0'
+    mappings_channel = 'official'
+    mappings_version = '1.20.1'
+    mixin_version = '0.8.5'
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${forge_version}"
+    implementation files("libs/epic-fight-20.14.17-mc1.20.1-forge.jar")
+    implementation files("libs/irons_spellbooks-1.20.1-3.15.4.jar")
+    implementation files("libs/geckolib-forge-1.20.1-4.8.3.jar")
+
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}"
+    compileOnly "org.spongepowered:mixin:${mixin_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "forge_version", project.forge_version
+}
+
+jar {
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA"
+    }
+    manifest {
+        attributes(
+            "MixinConfigs": "mixins.epicfight_spellbooks_compat.json"
+        )
+    }
+}

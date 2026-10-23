@@ -1,0 +1,41 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]]
+modId="epicfightspellbookcompat"
+version="${file.jarVersion}"
+displayName="Epic Fight Spellbooks Compat"
+credits="EnderDevelopment"
+authors="EnderDevelopment"
+description='''
+Prevents crashes when Epic Fight and Iron's Spells 'n Spellbooks are installed together.
+'''
+
+[[dependencies.epicfightspellbookcompat]]
+modId="forge"
+type="required"
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.epicfightspellbookcompat]]
+modId="minecraft"
+type="required"
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.epicfightspellbookcompat]]
+modId="epicfight"
+type="required"
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.epicfightspellbookcompat]]
+modId="irons_spellbooks"
+type="required"
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
